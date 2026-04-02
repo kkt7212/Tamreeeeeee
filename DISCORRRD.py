@@ -25,7 +25,12 @@ def save_config(config):
 config_data = load_config()
 players = {} 
 
-YDL_OPTIONS = {'format': 'bestaudio', 'noplaylist': 'True'}
+YDL_OPTIONS = {
+    'format': 'bestaudio/best',
+    'noplaylist': 'True',
+    'cookiefile': 'youtube_cookies.txt',
+    'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+}
 FFMPEG_PATH = 'ffmpeg' # 실제 경로로 수정 필수
 FFMPEG_OPTIONS = {'before_options': '-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5', 'options': '-vn'}
 
