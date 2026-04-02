@@ -26,7 +26,7 @@ config_data = load_config()
 players = {} 
 
 YDL_OPTIONS = {'format': 'bestaudio', 'noplaylist': 'True'}
-FFMPEG_PATH = r'C:\ffmpeg\bin\ffmpeg.exe' # 실제 경로로 수정 필수
+FFMPEG_PATH = 'ffmpeg' # 실제 경로로 수정 필수
 FFMPEG_OPTIONS = {'before_options': '-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5', 'options': '-vn'}
 
 class PlayerState:
@@ -226,4 +226,6 @@ async def set_channel(ctx):
     save_config(config_data)
     await ctx.send(f"✅ {ctx.channel.mention} 이제부터 여기가 음악 채널이다!")
 
-bot.run("TOKEN")
+import os
+token = os.getenv("DISCORD_TOKEN")
+bot.run(token)
