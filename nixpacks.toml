@@ -1,8 +1,13 @@
 [phases.setup]
-nixPkgs = ["python311", "ffmpeg", "libsodium", "nodejs"]
+nixPkgs = ["python311", "ffmpeg", "libsodium", "nodejs_20"]
 
 [phases.build]
+dependsOn = ["setup"]
 cmds = ["pip install -r requirements.txt"]
+
+# 시스템에게 FFmpeg 위치를 강제로 알려주는 설정입니다.
+[variables]
+PATH = "/usr/bin:/bin:/usr/local/bin:$PATH"
 
 [start]
 cmd = "python DISCORRRD.py"
