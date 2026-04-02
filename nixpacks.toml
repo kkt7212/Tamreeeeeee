@@ -1,2 +1,6 @@
 [phases.setup]
-nixPkgs = ["python311", "ffmpeg", "libsodium", "pkg-config"]
+nixPkgs = ["python311", "ffmpeg", "libsodium", "pkg-config", "nodejs"]
+
+[phases.build]
+dependsOn = ["setup"]
+cmds = ["pip install -r requirements.txt"]
